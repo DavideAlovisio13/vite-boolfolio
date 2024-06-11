@@ -8,7 +8,7 @@
 
 <script>
 import axios from 'axios'
-import {store} from './components/store'
+import {store} from './components/store.js'
   export default {
     name: 'App',
     data() {
@@ -19,8 +19,8 @@ import {store} from './components/store'
     }, 
     methods: {
       getApi() {
-        axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
-          this.projects = response.results;
+        axios.get(this.store.baseUrl + '/projects').then((response) => {
+          this.projects = response.data.results;
         })
       }
     },
